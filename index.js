@@ -2,9 +2,11 @@ const https = require('https');
 const zlib  = require('zlib');
 
 https.createServer(function(request, response) {
-  response.writeHead(102, {'Content-Type': 'text/html'});
-  response.write('<!--Pornhub Mirror Made By Jeffrey-->');
-  response.end();
+  request.on('end', function() {
+    response.writeHead(102, {'Content-Type': 'text/html'});
+    response.write('<!--Pornhub Mirror Made By Jeffrey-->');
+    response.end();
+  });
 
   let _request = new https.request({
     host: 'www.pornhub.com',
