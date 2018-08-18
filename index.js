@@ -16,7 +16,8 @@ http.createServer(function(request, response) {
     console.log(request.url);
 
     new https.request({
-      hostname: 'https://www.pornhub.com/view_video.php?viewkey=ph5b5b219297213',
+      host: 'www.pornhub.com',
+      path: request.url,
       headers: {
         'Host': 'www.pornhub.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
