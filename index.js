@@ -11,8 +11,9 @@ http.createServer(function(request, response) {
   });
 
   request.on('end', function() {
-    response.writeHead(102, {'Content-Type': 'text/html'});
-    response.write('<!--Pornhub Mirror Made By Jeffrey-->');
+    console.log('Writing Response')
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.write('<html><body>This is a working http response</body></html>');
     response.end();
   });
 }).listen(process.env.PORT);
