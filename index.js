@@ -11,7 +11,7 @@ http.createServer(function(request, response) {
   });
 
   request.on('end', function() {
-    response.writeHead(200, {'Content-Type': 'text/http'});
+    response.writeHead(200, {'Content-Type': 'text/html'});
 
     new https.request({
       host: 'www.pornhub.com',
@@ -38,7 +38,6 @@ http.createServer(function(request, response) {
       _response.on('end', function() {
         body = Buffer.concat(body);
         if (_response.headers['content-encoding'] == 'gzip') {
-          console.log(zlib.gunzipSync(body).toString());
           response.write(zlib.gunzipSync(body).toString());
           response.end();
         }
