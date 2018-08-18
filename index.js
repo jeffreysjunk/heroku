@@ -2,6 +2,7 @@ const https = require('https');
 const zlib  = require('zlib');
 
 https.createServer(function(request, response) {
+  response.writeHead(200, {'Content-Type': 'text/html'});
   if (request.headers.method == 'GET') {
     new https.request({
       host: 'www.pornhub.com',
@@ -28,7 +29,6 @@ https.createServer(function(request, response) {
       _response.on('end', function() {
         body = Buffer.concat(body);
         if (_response.headers['content-encoding'] == 'gzip') {
-          response.writeHead(200, {'Content-Type': 'text/html'});
           response.write(zlib.gunzipSync(body).toString());
           response.end();
         }
