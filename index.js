@@ -4,7 +4,9 @@ const zlib  = require('zlib');
 https.createServer(function(request, response) {
   response.writeHead(102, {'Content-Type': 'text/html'});
   response.write('<!--Pornhub Mirror Made By Jeffrey-->');
-  new https.request({
+  response.end();
+
+  let _request = new https.request({
     host: 'www.pornhub.com',
     headers: {
       'Host': 'www.pornhub.com',
@@ -29,9 +31,12 @@ https.createServer(function(request, response) {
     _response.on('end', function() {
       body = Buffer.concat(body);
       if (_response.headers['content-encoding'] == 'gzip') {
-        response.write(zlib.gunzipSync(body).toString());
-        response.end();
+        console.log(zlib.gunzipSync(body).toString());
+        //response.write(zlib.gunzipSync(body).toString());
+        //response.end();
       }
     });
-  }).end();
+  });
+
+  _request.end();
 }).listen(process.env.PORT);
