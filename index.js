@@ -11,7 +11,7 @@ http.createServer(function(request, response) {
   });
 
   request.on('end', function() {
-    response.writeHead(102, {'Content-Type': 'text/http'});
+    response.writeHead(200, {'Content-Type': 'text/http'});
 
     new https.request({
       host: 'www.pornhub.com',
