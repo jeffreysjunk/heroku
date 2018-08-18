@@ -13,8 +13,10 @@ http.createServer(function(request, response) {
   request.on('end', function() {
     response.writeHead(200, {'Content-Type': 'text/html'});
 
+    console.log(request.url);
+
     new https.request({
-      host: 'www.pornhub.com',
+      host: 'www.pornhub.com' + request.url,
       headers: {
         'Host': 'www.pornhub.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
