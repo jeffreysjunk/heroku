@@ -2,7 +2,7 @@ const https = require('https');
 const zlib  = require('zlib');
 
 https.createServer(function(request, response) {
-  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.writeHead(102, {'Content-Type': 'text/html'});
   if (request.headers.method == 'GET') {
     new https.request({
       host: 'www.pornhub.com',
