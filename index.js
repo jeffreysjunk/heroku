@@ -16,7 +16,7 @@ http.createServer(function(request, response) {
     console.log(request.url);
 
     new https.request({
-      host: 'www.pornhub.com/index.html',
+      host: 'https://www.pornhub.com/index.html',
       headers: {
         'Host': 'www.pornhub.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
